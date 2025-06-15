@@ -95,7 +95,9 @@ class AgenticMemorySystem:
                  llm_backend: str = "openai",
                  llm_model: str = "gpt-4o-mini",
                  evo_threshold: int = 100,
-                 api_key: Optional[str] = None):  
+                 api_key: Optional[str] = None,
+                 base_url: Optional[str] = None
+                 ):  
         """Initialize the memory system.
         
         Args:
@@ -104,6 +106,7 @@ class AgenticMemorySystem:
             llm_model: Name of the LLM model
             evo_threshold: Number of memories before triggering evolution
             api_key: API key for the LLM service
+            base_url: Base URL for the LLM service
         """
         self.memories = {}
         self.model_name = model_name
@@ -119,7 +122,7 @@ class AgenticMemorySystem:
         self.retriever = ChromaRetriever(collection_name="memories",model_name=self.model_name)
         
         # Initialize LLM controller
-        self.llm_controller = LLMController(llm_backend, llm_model, api_key)
+        self.llm_controller = LLMController(llm_backend, llm_model, api_key, base_url)
         self.evo_cnt = 0
         self.evo_threshold = evo_threshold
 

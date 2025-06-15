@@ -19,7 +19,6 @@ Our project introduces an innovative **Agentic Memory** system that revolutioniz
 
 For more details, please refer to our paper: [A-MEM: Agentic Memory for LLM Agents](https://arxiv.org/pdf/2502.12110)
 
-
 ## Key Features ✨
 
 - 🔄 Dynamic memory organization based on Zettelkasten principles
@@ -40,6 +39,7 @@ For more details, please refer to our paper: [A-MEM: Agentic Memory for LLM Agen
 ## How It Works 🛠️
 
 When a new memory is added to the system:
+
 1. Generates comprehensive notes with structured attributes
 2. Creates contextual descriptions and tags
 3. Analyzes historical memories for relevant connections
@@ -53,13 +53,15 @@ Empirical experiments conducted on six foundation models demonstrate superior pe
 ## Getting Started 🚀
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/agiresearch/A-mem.git
 cd AgenticMemory
 ```
 
 2. Install dependencies:
-Option 1: Using venv (Python virtual environment)
+   Option 1: Using venv (Python virtual environment)
+
 ```bash
 # Create and activate virtual environment
 python -m venv .venv
@@ -71,6 +73,7 @@ pip install -r requirements.txt
 ```
 
 Option 2: Using Conda
+
 ```bash
 # Create and activate conda environment
 conda create -n myenv python=3.9
@@ -81,6 +84,18 @@ pip install -r requirements.txt
 ```
 
 3. Usage Examples 💡
+
+set your openai api key
+
+```bash
+export OPENAI_API_KEY=your_api_key
+```
+
+and then run example.py(optional: you can put your own memory_list in example.py)
+
+```bash
+python example.py
+```
 
 Here's how to use the Agentic Memory system for basic operations:
 
@@ -139,17 +154,20 @@ memory_system.delete(memory_id)
 ### Advanced Features 🌟
 
 1. **ChromaDB Vector Storage** 📦
+
    - Efficient vector embedding storage and retrieval
    - Fast semantic similarity search
    - Automatic metadata handling
    - Persistent memory storage
 
 2. **Memory Evolution** 🧬
+
    - Automatically analyzes content relationships
    - Updates tags and context based on related memories
    - Creates semantic connections between memories
 
 3. **Flexible Metadata** 📋
+
    - Custom tags and categories
    - Automatic keyword extraction
    - Context generation
@@ -162,16 +180,19 @@ memory_system.delete(memory_id)
 ### Best Practices 💪
 
 1. **Memory Creation** ✨:
+
    - Provide clear, specific content
    - Add relevant tags for better organization
    - Let the system handle context and keyword generation
 
 2. **Memory Retrieval** 🔍:
+
    - Use specific search queries
    - Adjust 'k' parameter based on needed results
    - Consider both exact and semantic matches
 
 3. **Memory Evolution** 🧬:
+
    - Allow automatic evolution to organize memories
    - Review generated connections periodically
    - Use consistent tagging conventions
