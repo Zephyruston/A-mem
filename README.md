@@ -218,3 +218,60 @@ If you use this code in your research, please cite our work:
 ## License 📄
 
 This project is licensed under the MIT License. See LICENSE for details.
+
+### MCP Tool Usage 🛠️
+
+The memory system can be used as an MCP tool, allowing natural language interaction with the memory system.
+
+#### Prerequisites
+
+1. Environment variables:
+
+```bash
+# PostgreSQL connection
+export DATABASE_URL="postgresql://user:password@localhost:5432/dbname"
+
+# LLM API configuration
+export API_KEY="your-api-key"
+export MODEL_NAME="qwen-max-latest"
+export BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1/"
+```
+
+#### Running the System
+
+1. Start the memory server:
+
+```bash
+python memory_server.py
+```
+
+2. Start the memory client:
+
+```bash
+python memory_client.py
+```
+
+#### Example Interactions
+
+Once the client is running, you can interact with the memory system using natural language:
+
+1. Adding memories:
+
+   - "我想记住我喜欢吃披萨"
+   - "添加一条记忆：我最近在学习 Python 编程"
+
+2. Searching memories:
+
+   - "搜索关于食物的记忆"
+   - "查找所有与编程相关的记忆"
+
+3. Updating memories:
+
+   - "更新记忆 1 的内容为：我最喜欢吃意大利披萨"
+   - "修改记忆 2 的标签为：编程、Python、学习"
+
+4. Deleting memories:
+   - "删除记忆 1"
+   - "移除 ID 为 3 的记忆"
+
+The system will automatically convert your natural language requests into appropriate tool calls and display the results.

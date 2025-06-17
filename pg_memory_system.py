@@ -55,7 +55,7 @@ class PGMemorySystem:
                         id SERIAL PRIMARY KEY,
                         timestamp TIMESTAMP(6),
                         text TEXT,
-                        embedding VECTOR(1536),
+                        embedding VECTOR(384),
                         model VARCHAR(50),
                         metadata JSONB
                     );
@@ -132,9 +132,9 @@ class PGMemorySystem:
         with psycopg2.connect(self.db_url) as conn:
             with conn.cursor() as cur:
                 cur.execute('''
-                    SELECT id, text, metadata, 1 - (embedding <=> %s) as similarity
+                    SELECT id, text, metadata, 1 - (embedding <=> %s::vector) as similarity
                     FROM vector_store
-                    ORDER BY embedding <=> %s
+                    ORDER BY embedding <=> %s::vector
                     LIMIT %s;
                 ''', (query_embedding, query_embedding, k))
                 
